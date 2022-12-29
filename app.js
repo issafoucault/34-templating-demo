@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const redditData = require('./data.json');
+const port = process.env.PORT || 3001;
 
 app.use(express.static(path.join(__dirname, 'public')))
 
@@ -34,6 +35,4 @@ app.get('/rand', (req, res) => {
     res.render('random', { num })
 })
 
-app.listen(3000, () => {
-    console.log("LISTENING ON PORT 3000")
-})
+app.listen(port, () => console.log(`app listening on port ${port}!`));
